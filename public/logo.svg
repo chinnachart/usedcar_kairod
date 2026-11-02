@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#0b5cff"/><path d="M14 38h6l3-9c1-3 3-4 6-4h10c3 0 5 1 6 4l3 9h2v8H14z" fill="#fff"/><circle cx="23" cy="46" r="5" fill="#ff7a00" stroke="#fff" stroke-width="2"/><circle cx="43" cy="46" r="5" fill="#ff7a00" stroke="#fff" stroke-width="2"/><path d="M4 22h14M7 28h9" stroke="#ff7a00" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- เสือไว: เสือชีตาห์ใส่หมวก ถือกุญแจ -->
+  <circle cx="100" cy="104" r="78" fill="#e8f0ff"/>
+  <!-- ears -->
+  <circle cx="52" cy="62" r="20" fill="#ffb03a"/><circle cx="52" cy="62" r="10" fill="#ff7a00"/>
+  <circle cx="148" cy="62" r="20" fill="#ffb03a"/><circle cx="148" cy="62" r="10" fill="#ff7a00"/>
+  <!-- head -->
+  <ellipse cx="100" cy="110" rx="62" ry="56" fill="#ffb03a"/>
+  <ellipse cx="100" cy="132" rx="38" ry="28" fill="#fff4e3"/>
+  <!-- spots -->
+  <g fill="#8a4b00"><circle cx="58" cy="100" r="4"/><circle cx="66" cy="88" r="3"/><circle cx="142" cy="100" r="4"/><circle cx="134" cy="88" r="3"/><circle cx="50" cy="116" r="3"/><circle cx="150" cy="116" r="3"/></g>
+  <!-- cap -->
+  <path d="M46 80c4-32 28-46 54-46s50 14 54 46z" fill="#0b5cff"/>
+  <path d="M100 80h64c4 0 6 5 2 7-14 5-38 5-66 1z" fill="#0847c7"/>
+  <text x="100" y="70" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="30" fill="#fff" text-anchor="middle">R</text>
+  <!-- eyes with tear marks -->
+  <ellipse cx="80" cy="104" rx="9" ry="11" fill="#14171f"/><ellipse cx="120" cy="104" rx="9" ry="11" fill="#14171f"/>
+  <circle cx="83" cy="99" r="3.5" fill="#fff"/><circle cx="123" cy="99" r="3.5" fill="#fff"/>
+  <path d="M72 114q-4 6-6 10M128 114q4 6 6 10" stroke="#8a4b00" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="64" cy="128" rx="8" ry="5" fill="#ff9ec4" opacity=".7"/><ellipse cx="136" cy="128" rx="8" ry="5" fill="#ff9ec4" opacity=".7"/>
+  <!-- nose + smile -->
+  <path d="M93 120h14l-7 8z" fill="#14171f"/>
+  <path d="M86 134q14 12 28 0" fill="none" stroke="#14171f" stroke-width="4" stroke-linecap="round"/>
+  <!-- speed lines -->
+  <path d="M8 96h18M4 112h16M10 128h14" stroke="#ff7a00" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -20,6 +20,7 @@ export default function Home() {
               <li>รถติดไฟแนนซ์ก็ขายได้</li>
               <li>เอกสารโอนถูกต้องตามกรมการขนส่งทางบก</li>
             </ul>
+            <img src="/mascot.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={220} height={262} />
           </div>
           <ValuationForm source="home-hero" />
         </div>

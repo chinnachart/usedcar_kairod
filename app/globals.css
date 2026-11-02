@@ -124,3 +124,7 @@ h3 { font-size: 1.15rem; }
 .mobile-dealer { margin-left: auto; font-weight: 700; font-size: .9rem; color: var(--accent); text-decoration: none; }
 .mobile-dealer + .header-cta { margin-left: 0; }
 @media (min-width: 860px) { .mobile-dealer { display: none; } }
+
+.hero-mascot { display: block; width: 150px; height: auto; margin: 8px auto 0; }
+@media (min-width: 900px) { .hero-mascot { width: 220px; margin: 16px 0 0 40px; } }
+.cta-mascot { display: block; margin: -8px auto 8px; background: #fff; border-radius: 50%; padding: 8px; width: 110px; height: 110px; object-fit: contain; }
