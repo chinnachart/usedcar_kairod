@@ -11,7 +11,7 @@ npm run build      # ตรวจว่า build ผ่านก่อน deploy
 | ตัวแปร | ตัวอย่าง | หมายเหตุ |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | `https://rodwai.com` | **ต้องตั้ง** ใช้ทำ canonical/sitemap |
-| `NEXT_PUBLIC_LINE_ID` | `@kairod` | LINE OA Basic ID (ขึ้นต้นด้วย @) |
+| `NEXT_PUBLIC_LINE_ID` | `@216fjaks` | LINE OA Basic ID (ขึ้นต้นด้วย @) |
 | `NEXT_PUBLIC_PHONE` | `0812345678` | ไม่บังคับ ถ้าใส่จะมีปุ่มโทร |
 | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXX` | GA4 — event `generate_lead` = ลีด |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | `abc123` | โค้ดยืนยัน Google Search Console |

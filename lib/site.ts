@@ -4,8 +4,8 @@ export const SITE = {
   fullName: "รถไว RodWai รับซื้อรถมือสอง กรุงเทพฯ",
   // ตั้งค่า NEXT_PUBLIC_SITE_URL เป็นโดเมนจริงตอน deploy (เช่น https://rodwai.com)
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://rodwai.com").replace(/\/$/, ""),
-  // LINE Official Account ID (ปกติขึ้นต้นด้วย @ เช่น @kairod) — ตรวจให้ตรงกับใน LINE OA Manager
-  lineId: process.env.NEXT_PUBLIC_LINE_ID || "kairod@dotcom",
+  // LINE Official Account ID (ปกติขึ้นต้นด้วย @ เช่น @216fjaks) — ตรวจให้ตรงกับใน LINE OA Manager
+  lineId: process.env.NEXT_PUBLIC_LINE_ID || "@216fjaks",
   // เบอร์โทร (ไม่บังคับ) เช่น "0812345678" — ถ้าเว้นว่าง ปุ่มโทรจะถูกซ่อน
   phone: process.env.NEXT_PUBLIC_PHONE || "",
   areaServed: "กรุงเทพมหานคร",
