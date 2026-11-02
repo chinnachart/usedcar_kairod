@@ -4,3 +4,6 @@ out
 .env*.local
 next-env.d.ts
 *.tsbuildinfo
+
+# ข้อมูลลูกค้าจริง ห้าม commit
+business/*-data*
