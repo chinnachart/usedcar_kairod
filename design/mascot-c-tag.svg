@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170">
+  <!-- น้องไว + ป้ายราคา: รถยิ้มชูธง "ราคาดี" -->
+  <path d="M10 92h26M4 110h26M14 128h18" stroke="#ff7a00" stroke-width="7" stroke-linecap="round"/>
+  <path d="M42 132v-22c0-9 5-14 12-16l18-30c4-7 9-10 17-10h40c8 0 13 3 17 10l16 30c9 2 15 8 15 17v21c0 6-4 10-10 10H52c-6 0-10-4-10-10z" fill="#0b5cff"/>
+  <path d="M79 68c2-4 5-6 10-6h38c5 0 8 2 10 6l11 24H68z" fill="#e8f0ff"/>
+  <!-- winking eyes -->
+  <ellipse cx="96" cy="80" rx="7" ry="9" fill="#14171f"/><circle cx="99" cy="76" r="2.5" fill="#fff"/>
+  <path d="M118 82q8-8 16 0" stroke="#14171f" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M96 110q16 16 32 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="74" cy="114" rx="8" ry="5" fill="#ff9ec4" opacity=".8"/><ellipse cx="150" cy="114" rx="8" ry="5" fill="#ff9ec4" opacity=".8"/>
+  <circle cx="72" cy="144" r="16" fill="#14171f"/><circle cx="72" cy="144" r="7" fill="#ff7a00"/>
+  <circle cx="152" cy="144" r="16" fill="#14171f"/><circle cx="152" cy="144" r="7" fill="#ff7a00"/>
+  <!-- antenna flag with baht tag -->
+  <path d="M150 62L166 14" stroke="#14171f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M166 14l26 6-6 22-26-6z" fill="#ff7a00"/>
+  <circle cx="171" cy="22" r="3" fill="#fff"/>
+  <text x="179" y="38" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="#fff" text-anchor="middle" transform="rotate(13 179 32)">฿</text>
+</svg>

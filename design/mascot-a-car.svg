@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <!-- น้องไว: รถยิ้ม -->
+  <g stroke-linecap="round">
+    <path d="M8 70h30M2 88h30M12 106h22" stroke="#ff7a00" stroke-width="7"/>
+  </g>
+  <path d="M44 112V92c0-8 4-13 11-15l18-30c4-7 9-10 17-10h44c8 0 13 3 17 10l14 28c10 2 17 8 17 18v19c0 6-4 10-10 10H54c-6 0-10-4-10-10z" fill="#0b5cff"/>
+  <path d="M80 50c2-4 5-6 10-6h42c5 0 8 2 10 6l11 24H69z" fill="#e8f0ff"/>
+  <!-- eyes -->
+  <ellipse cx="96" cy="62" rx="8" ry="10" fill="#14171f"/><ellipse cx="128" cy="62" rx="8" ry="10" fill="#14171f"/>
+  <circle cx="99" cy="58" r="3" fill="#fff"/><circle cx="131" cy="58" r="3" fill="#fff"/>
+  <!-- cheeks + smile -->
+  <ellipse cx="76" cy="96" rx="9" ry="6" fill="#ff9ec4" opacity=".8"/><ellipse cx="160" cy="96" rx="9" ry="6" fill="#ff9ec4" opacity=".8"/>
+  <path d="M100 92q18 18 36 0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <rect x="170" y="86" width="12" height="9" rx="4" fill="#ffd34d"/>
+  <!-- wheels -->
+  <circle cx="74" cy="124" r="17" fill="#14171f"/><circle cx="74" cy="124" r="8" fill="#ff7a00"/>
+  <circle cx="158" cy="124" r="17" fill="#14171f"/><circle cx="158" cy="124" r="8" fill="#ff7a00"/>
+</svg>
