@@ -148,3 +148,9 @@ h3 { font-size: 1.15rem; }
 .hero-offers { max-width: 460px; margin: 8px auto 0; }
 .hero-offers svg { width: 100%; height: auto; display: block; }
 @media (min-width: 900px) { .hero-offers { margin: 8px 0 0; } }
+
+.consent { display: flex; gap: 8px; align-items: flex-start; font-size: .82rem; color: var(--muted); margin: 0 0 12px; line-height: 1.5; }
+.consent input { margin-top: 3px; flex: none; width: 16px; height: 16px; }
+.assistant { display: grid; gap: 20px; align-items: center; background: var(--soft); border-radius: var(--radius); padding: 24px; }
+.assistant img { margin: 0 auto; }
+@media (min-width: 760px) { .assistant { grid-template-columns: 140px 1fr; padding: 32px; } }

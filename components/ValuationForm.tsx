@@ -83,6 +83,10 @@ export default function ValuationForm({
           <input name="phone" type="tel" inputMode="tel" placeholder="08x-xxx-xxxx" />
         </label>
       </div>
+      <label className="consent">
+        <input type="checkbox" name="consent" required />
+        <span>ยินยอมให้รถไวใช้ข้อมูลนี้เพื่อติดต่อกลับ และส่งข้อมูลรถ (ไม่รวมชื่อและเบอร์) ให้เต็นท์พาร์ทเนอร์เพื่อเสนอราคา ตาม <a href="/privacy" target="_blank">นโยบายความเป็นส่วนตัว</a></span>
+      </label>
       <button type="submit" className="btn btn-line btn-block">ส่งข้อมูลทาง LINE เพื่อรับราคา</button>
       <p className="form-note">
         {sent

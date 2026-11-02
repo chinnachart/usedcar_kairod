@@ -63,6 +63,10 @@ export default function DealerForm() {
           </select>
         </label>
       </div>
+      <label className="consent">
+        <input type="checkbox" name="consent" required />
+        <span>ยินยอมให้รถไวใช้ข้อมูลนี้เพื่อติดต่อกลับ ตาม <a href="/privacy" target="_blank">นโยบายความเป็นส่วนตัว</a></span>
+      </label>
       <button type="submit" className="btn btn-accent btn-block">ส่งใบสมัครทาง LINE</button>
       <p className="form-note">
         {sent ? "เปิด LINE แล้ว กด “ส่ง” ในแชท ทีมงานจะติดต่อกลับเพื่ออธิบายเงื่อนไขการเป็นพาร์ทเนอร์" : "ระบบจะเปิด LINE พร้อมข้อมูลที่กรอก สมัครฟรี ทีมงานจะติดต่อกลับ"}

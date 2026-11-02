@@ -33,6 +33,7 @@ export default function Footer() {
             <li><Link href="/khai-rod-tid-finance">ขายรถติดไฟแนนซ์</Link></li>
             <li><Link href="/blog">บทความทั้งหมด</Link></li>
             <li><Link href="/dealer">สำหรับเต็นท์รถ</Link></li>
+            <li><Link href="/privacy">นโยบายความเป็นส่วนตัว</Link></li>
           </ul>
         </div>
       </div>
