@@ -1,9 +1,9 @@
 // ตั้งค่าหลักของเว็บ — แก้ที่ไฟล์นี้ที่เดียว
 export const SITE = {
-  name: "KaiRod",
-  fullName: "KaiRod รับซื้อรถมือสอง กรุงเทพฯ",
-  // ตั้งค่า NEXT_PUBLIC_SITE_URL เป็นโดเมนจริงตอน deploy (เช่น https://www.kairod.com)
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, ""),
+  name: "รถไว",
+  fullName: "รถไว RodWai รับซื้อรถมือสอง กรุงเทพฯ",
+  // ตั้งค่า NEXT_PUBLIC_SITE_URL เป็นโดเมนจริงตอน deploy (เช่น https://rodwai.com)
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://rodwai.com").replace(/\/$/, ""),
   // LINE Official Account ID (ปกติขึ้นต้นด้วย @ เช่น @kairod) — ตรวจให้ตรงกับใน LINE OA Manager
   lineId: process.env.NEXT_PUBLIC_LINE_ID || "kairod@dotcom",
   // เบอร์โทร (ไม่บังคับ) เช่น "0812345678" — ถ้าเว้นว่าง ปุ่มโทรจะถูกซ่อน

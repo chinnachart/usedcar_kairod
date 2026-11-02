@@ -12,7 +12,7 @@ const font = Noto_Sans_Thai({ subsets: ["thai", "latin"], weight: ["400", "600",
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: "รับซื้อรถมือสอง กรุงเทพฯ ให้ราคาสูง ประเมินฟรีทาง LINE | KaiRod", template: "%s | KaiRod" },
+  title: { default: "รับซื้อรถมือสอง กรุงเทพฯ ให้ราคาสูง ประเมินฟรีทาง LINE | รถไว RodWai", template: "%s | รถไว RodWai" },
   description: "รับซื้อรถมือสองทุกยี่ห้อทั่วกรุงเทพฯ 50 เขต ประเมินราคาฟรีผ่าน LINE นัดดูรถถึงที่ รถติดไฟแนนซ์ก็ขายได้ จ่ายเงินไว เอกสารถูกต้อง",
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "th_TH", siteName: SITE.fullName },

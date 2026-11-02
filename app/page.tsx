@@ -25,7 +25,7 @@ export default function Home() {
       </section>
 
       <section className="section"><div className="container">
-        <h2>ทำไมต้องขายรถกับ KaiRod</h2>
+        <h2>ทำไมต้องขายรถกับรถไว</h2>
         <Usps />
       </div></section>
 
