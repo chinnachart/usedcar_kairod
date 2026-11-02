@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ValuationForm from "@/components/ValuationForm";
 import Faq from "@/components/Faq";
-import { Usps, Steps, CtaBox, BrandChips, RelatedPosts } from "@/components/Sections";
+import { Usps, Steps, CtaBox, BrandChips, RelatedPosts, DealerBand } from "@/components/Sections";
 import { ZONES, DISTRICTS } from "@/lib/districts";
 import { GENERAL_FAQ } from "@/lib/faq";
 
@@ -11,13 +11,14 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <h1>รับซื้อรถมือสอง กรุงเทพฯ ให้ราคาสูง ประเมินฟรีทาง LINE</h1>
-            <p className="lead">รับซื้อรถทุกยี่ห้อ ทั้งรถเก๋ง กระบะ SUV และ EV ครอบคลุม 50 เขตทั่วกรุงเทพฯ รถติดไฟแนนซ์ก็ขายได้</p>
+            <span className="badge">ขายรถมือสอง กรุงเทพฯ</span>
+            <h1>ขายรถไว ได้ราคาดี ให้เต็นท์แข่งกันเสนอราคา</h1>
+            <p className="lead">ส่งข้อมูลรถครั้งเดียว เต็นท์พาร์ทเนอร์ของ RodWai เสนอราคารับซื้อแข่งกัน คุณเลือกข้อเสนอที่ดีที่สุด รับซื้อรถทุกยี่ห้อทั่ว 50 เขตในกรุงเทพฯ</p>
             <ul className="checks">
-              <li>ประเมินราคาฟรี ไม่มีข้อผูกมัด</li>
-              <li>นัดดูรถถึงบ้าน คอนโด หรือที่ทำงาน</li>
-              <li>ช่วยปิดยอดไฟแนนซ์ ส่วนต่างโอนให้คุณ</li>
-              <li>จ่ายเงินไว เอกสารโอนถูกต้อง</li>
+              <li>ฟรีสำหรับผู้ขาย ไม่มีข้อผูกมัด</li>
+              <li>ไม่ต้องขับรถไปเต็นท์ทีละที่ ตรวจสภาพถึงที่</li>
+              <li>รถติดไฟแนนซ์ก็ขายได้</li>
+              <li>เอกสารโอนถูกต้องตามกรมการขนส่งทางบก</li>
             </ul>
           </div>
           <ValuationForm source="home-hero" />
@@ -25,7 +26,7 @@ export default function Home() {
       </section>
 
       <section className="section"><div className="container">
-        <h2>ทำไมต้องขายรถกับรถไว</h2>
+        <h2>ทำไมต้องขายรถกับ RodWai</h2>
         <Usps />
       </div></section>
 
@@ -57,6 +58,8 @@ export default function Home() {
       </div></section>
 
       <div className="container"><Faq items={GENERAL_FAQ} /></div>
+
+      <div className="container section"><DealerBand /></div>
 
       <section className="section"><div className="container">
         <h2>บทความสำหรับคนอยากขายรถ</h2>

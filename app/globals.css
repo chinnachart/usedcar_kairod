@@ -1,6 +1,7 @@
 :root {
   --brand: #0b5cff;
   --line: #06c755;
+  --accent: #ff7a00;
   --ink: #14171f;
   --muted: #5b6474;
   --bg: #ffffff;
@@ -24,8 +25,14 @@ h3 { font-size: 1.15rem; }
 /* header */
 .site-header { position: sticky; top: 0; z-index: 20; background: #fff; border-bottom: 1px solid var(--border); }
 .header-inner { display: flex; align-items: center; gap: 16px; min-height: 60px; }
-.logo { font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; margin: 0; }
-.logo span { font-size: .8rem; font-weight: 600; color: var(--brand); margin-left: 6px; }
+.logo { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; margin: 0 0 8px; }
+.site-header .logo { margin: 0; }
+.logo img { display: block; }
+.logo-text b { color: var(--accent); }
+.logo-th { font-size: .8rem; font-weight: 600; color: var(--brand); }
+.logo-dark { color: #fff; }
+.logo-dark .logo-th { color: #9fc0ff; }
+.nav-dealer { color: var(--accent) !important; }
 .nav { display: none; gap: 20px; margin-left: auto; }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; }
 .header-cta { margin-left: auto; }
@@ -97,3 +104,23 @@ h3 { font-size: 1.15rem; }
 .footer-grid li { margin: 4px 0; }
 .footer-h { color: #fff; font-weight: 700; margin: 0 0 8px; }
 .copyright { font-size: .8rem; margin-top: 24px; opacity: .7; }
+
+/* dealer */
+.btn-accent { background: var(--accent); color: #fff; }
+.dealer-hero { background: linear-gradient(160deg, #fff3e8 0%, #ffffff 70%); padding: 32px 0 40px; }
+@media (min-width: 900px) { .dealer-hero { padding: 56px 0; } }
+.dealer-band { background: #0f1420; color: #fff; border-radius: var(--radius); padding: 28px; display: grid; gap: 16px; align-items: center; }
+.dealer-band p { color: #c9d1de; margin: 0; }
+@media (min-width: 760px) { .dealer-band { grid-template-columns: 1fr auto; } }
+.badge { display: inline-block; background: #fff3e8; color: var(--accent); font-weight: 700; font-size: .85rem; padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+.compare { width: 100%; border-collapse: collapse; background: #fff; }
+.compare th, .compare td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; font-size: .95rem; }
+.compare th { background: var(--soft); }
+.table-wrap { overflow-x: auto; }
+.checks-inline { border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; }
+.checks-inline legend { font-size: .9rem; font-weight: 600; padding: 0 4px; }
+.checks-inline label { flex-direction: row !important; align-items: center; font-weight: 400 !important; gap: 6px !important; }
+.checks-inline input { width: auto !important; }
+.mobile-dealer { margin-left: auto; font-weight: 700; font-size: .9rem; color: var(--accent); text-decoration: none; }
+.mobile-dealer + .header-cta { margin-left: 0; }
+@media (min-width: 860px) { .mobile-dealer { display: none; } }

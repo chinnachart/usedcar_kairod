@@ -1,8 +1,17 @@
 "use client";
+import { usePathname } from "next/navigation";
 import { SITE, lineAddFriendUrl } from "@/lib/site";
 import { track } from "@/lib/track";
 
 export default function FloatingCta() {
+  const path = usePathname();
+  if (path?.startsWith("/dealer")) {
+    return (
+      <div className="floating-cta" role="complementary" aria-label="สมัครพาร์ทเนอร์">
+        <a className="btn btn-accent" href="#samak">สมัครเป็นเต็นท์พาร์ทเนอร์ ฟรี</a>
+      </div>
+    );
+  }
   return (
     <div className="floating-cta" role="complementary" aria-label="ติดต่อเรา">
       {SITE.phone && (

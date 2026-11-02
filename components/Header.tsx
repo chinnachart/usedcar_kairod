@@ -1,19 +1,21 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site";
+import Logo from "./Logo";
 import LineLink from "./LineLink";
 
 export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="logo">{SITE.name}<span>รับซื้อรถ กทม.</span></Link>
+        <Logo />
         <nav className="nav" aria-label="เมนูหลัก">
-          <Link href="/prameen-rakha-rod">ประเมินราคา</Link>
+          <Link href="/prameen-rakha-rod">ขายรถ</Link>
           <Link href="/khai-rod-tid-finance">รถติดไฟแนนซ์</Link>
           <Link href="/khet">พื้นที่บริการ</Link>
           <Link href="/blog">บทความ</Link>
+          <Link href="/dealer" className="nav-dealer">สำหรับเต็นท์รถ</Link>
         </nav>
-        <LineLink className="btn btn-line btn-sm header-cta" source="header">แอด LINE</LineLink>
+        <Link href="/dealer" className="mobile-dealer">เต็นท์รถ</Link>
+        <LineLink className="btn btn-line btn-sm header-cta" source="header">ขายรถ</LineLink>
       </div>
     </header>
   );

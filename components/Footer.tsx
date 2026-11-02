@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import Logo from "./Logo";
 import { BRANDS } from "@/lib/brands";
 import { ZONES, DISTRICTS } from "@/lib/districts";
 
@@ -8,8 +9,9 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <p className="logo">{SITE.name}</p>
-          <p>รับซื้อรถมือสองทุกยี่ห้อในกรุงเทพมหานคร ประเมินราคาฟรีผ่าน LINE: {SITE.lineId}</p>
+          <Logo dark />
+          <p>{SITE.tagline} บริการขายรถมือสองทุกยี่ห้อในกรุงเทพมหานคร ติดต่อทาง LINE: {SITE.lineId}</p>
+          <p><Link href="/dealer">เต็นท์รถ: สมัครเป็นพาร์ทเนอร์ →</Link></p>
         </div>
         <div>
           <p className="footer-h">รับซื้อตามยี่ห้อ</p>
@@ -29,6 +31,7 @@ export default function Footer() {
             <li><Link href="/prameen-rakha-rod">ประเมินราคารถฟรี</Link></li>
             <li><Link href="/khai-rod-tid-finance">ขายรถติดไฟแนนซ์</Link></li>
             <li><Link href="/blog">บทความทั้งหมด</Link></li>
+            <li><Link href="/dealer">สำหรับเต็นท์รถ</Link></li>
           </ul>
         </div>
       </div>
