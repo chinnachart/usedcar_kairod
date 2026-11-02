@@ -13,6 +13,10 @@
 | `ig-05-dealer.png` | 1080×1080 | โพสต์ชวนเต็นท์รถ |
 | `story-01-sell.png` | 1080×1920 | IG/FB Story ฝั่งผู้ขาย |
 | `story-02-dealer.png` | 1080×1920 | IG/FB Story ฝั่งเต็นท์ |
+| `why-00-cover.png` … `why-06-cta.png` | 1080×1080 ×7 | Carousel "ทำไมต้องรถไว?" (โพสต์เรียงตามเลข) |
+| `ig-06-why-single.png` | 1080×1350 | โพสต์เดี่ยว "ทำไมต้องรถไว?" (4:5) |
+
+แผนโพสต์ 14 วันพร้อมแคปชัน: ดู `POSTING-PLAN.md`
 
 ## ตั้ง Rich menu ใน LINE OA Manager
 Home → Rich menu → Create → Template: **Large, 6 ช่อง (3×2)** → อัปโหลด `line-richmenu-2500x1686.png` แล้วตั้ง Action ทีละช่อง (Type: Link):

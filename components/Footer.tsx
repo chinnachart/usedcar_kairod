@@ -28,6 +28,7 @@ export default function Footer() {
         <div>
           <p className="footer-h">ข้อมูลน่ารู้</p>
           <ul>
+            <li><Link href="/about">ทำไมต้องรถไว</Link></li>
             <li><Link href="/prameen-rakha-rod">ประเมินราคารถฟรี</Link></li>
             <li><Link href="/khai-rod-tid-finance">ขายรถติดไฟแนนซ์</Link></li>
             <li><Link href="/blog">บทความทั้งหมด</Link></li>

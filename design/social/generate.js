@@ -13,11 +13,25 @@ const brandRow = (size, color = '#fff') => `<div style="display:flex;align-items
 const headBig = (px, bg = '#fff') => `<div style="width:${px}px;height:${px}px;background:${bg};border-radius:50%;display:grid;place-items:center;flex:none">${HEAD.replace('class="head"', `class="head" width="${px*.92}" height="${px*.92}"`)}</div>`;
 const lineBtn = (fs) => `<span class="line" style="font-size:${fs}px;padding:${fs*.45}px ${fs*1.1}px">แอด LINE @216fjaks</span>`;
 
+const WAI = [["ตอบไว", "ทักไลน์มา มีคนตอบ\nไม่ปล่อยให้รอ"], ["ประเมินไว", "ส่งรูปรถ รับราคาเบื้องต้นได้เลย\nฟรี ไม่มีข้อผูกมัด"], ["เต็นท์แข่งไว", "ส่งข้อมูลครั้งเดียว\nเต็นท์หลายเจ้าเสนอราคาพร้อมกัน"], ["ปิดไฟแนนซ์ไว", "ผ่อนยังไม่หมดก็ไม่ต้องรอ\nเราช่วยประสานปิดยอดให้"], ["ได้เงินไว", "ตรวจสภาพถึงที่ ตกลงราคาแล้ว\nรับเงิน โอนรถถูกต้อง"]];
+
+const waiSlide = (i) => `<div class="f" style="width:1080px;height:1080px;background:${i%2?SOFT:'#fff'};color:${NAVY};padding:80px;justify-content:space-between">
+  ${brandRow(40, NAVY)}
+  <div>
+    <div style="display:flex;align-items:center;gap:32px"><div style="width:150px;height:150px;border-radius:50%;background:${ORANGE};color:#fff;font-size:96px;font-weight:700;display:grid;place-items:center">${i+1}</div>
+    <div style="font-size:${WAI[i][0].length>9?100:132}px;font-weight:700;color:${BLUE};line-height:1">${WAI[i][0]}</div></div>
+    <div style="font-size:56px;line-height:1.5;margin-top:48px;white-space:pre-line">${WAI[i][1]}</div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="display:flex;gap:14px">${[0,1,2,3,4].map(k=>`<span style="width:${k==i?48:16}px;height:16px;border-radius:999px;background:${k==i?ORANGE:'#c9d1de'}"></span>`).join('')}</div>
+    ${headBig(200, i%2?'#fff':SOFT)}
+  </div></div>`;
+
 const T = {
 'facebook-cover': [1640, 624, `<div class="f" style="width:1640px;height:624px;background:${BLUE};flex-direction:row;align-items:center;gap:56px;padding-left:380px;color:#fff">
   <div class="dot" style="width:520px;height:520px;background:#1a68ff;left:-120px;top:-160px"></div>
   ${headBig(380)}
-  <div><div class="brand" style="font-size:88px">Rod<b>Wai</b> รถไว</div><div style="font-size:54px;font-weight:700">ขายรถไว ได้ราคาดี</div><div style="font-size:34px;opacity:.9">ให้เต็นท์แข่งกันเสนอราคา · rodwai.com</div></div></div>`],
+  <div><div class="brand" style="font-size:88px">Rod<b>Wai</b> รถไว</div><div style="font-size:54px;font-weight:700">ขายรถไว ได้ราคาดี</div><div style="font-size:34px;opacity:.9">เรื่องรถ ต้องรถไว · rodwai.com</div></div></div>`],
 
 'ig-01-intro': [1080, 1080, `<div class="f" style="width:1080px;height:1080px;background:${BLUE};color:#fff;padding:80px;justify-content:space-between">
   <div class="dot" style="width:700px;height:700px;background:#1a68ff;right:-260px;top:-200px"></div>
@@ -83,6 +97,40 @@ const T = {
   ${headBig(340)}
   <div style="position:relative"><div style="font-size:84px;font-weight:700">ขายรถไว <span style="color:#ffb03a">ได้ราคาดี</span></div><div style="font-size:40px;opacity:.95">ให้เต็นท์แข่งกันเสนอราคา · กรุงเทพฯ</div></div></div>`],
 
+
+'why-00-cover': [1080, 1080, `<div class="f" style="width:1080px;height:1080px;background:${BLUE};color:#fff;padding:80px;justify-content:space-between">
+  <div class="dot" style="width:760px;height:760px;background:#1a68ff;right:-280px;bottom:-280px"></div>
+  ${brandRow(44)}
+  <div style="position:relative"><div style="font-size:124px;font-weight:700;line-height:1.1">ทำไมต้อง<br><span style="color:#ffb03a">รถไว?</span></div>
+  <div style="font-size:52px;margin-top:24px;font-weight:700">เพราะเรื่องรถ เราต้องไว</div></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;position:relative"><div style="font-size:40px;font-weight:700;opacity:.95">ไว 5 ข้อ เลื่อนดู →</div>${headBig(280)}</div></div>`],
+
+'why-01-reply': [1080, 1080, waiSlide(0)],
+
+'why-02-price': [1080, 1080, waiSlide(1)],
+
+'why-03-dealers': [1080, 1080, waiSlide(2)],
+
+'why-04-finance': [1080, 1080, waiSlide(3)],
+
+'why-05-money': [1080, 1080, waiSlide(4)],
+
+'why-06-cta': [1080, 1080, `<div class="f" style="width:1080px;height:1080px;background:${ORANGE};color:#fff;padding:80px;align-items:center;justify-content:center;text-align:center;gap:36px">
+  <div class="dot" style="width:700px;height:700px;background:#ff8f26;left:-260px;top:-260px"></div>
+  <div style="position:relative">${headBig(340)}</div>
+  <div style="position:relative;font-size:100px;font-weight:700;line-height:1.15">เรื่องรถ<br>ต้องรถไว</div>
+  <div style="position:relative">${lineBtn(46)}<div style="font-size:36px;margin-top:20px">หรือ rodwai.com</div></div></div>`],
+
+'ig-06-why-single': [1080, 1350, `<div class="f" style="width:1080px;height:1350px;background:${NAVY};color:#fff;padding:80px">
+  <div class="dot" style="width:640px;height:640px;background:#1b2335;right:-220px;top:-220px"></div>
+  <div style="position:relative">${brandRow(44)}</div>
+  <div style="position:relative;font-size:104px;font-weight:700;line-height:1.12;margin-top:48px">ทำไมต้อง<span style="color:#ffb03a">รถไว?</span></div>
+  <div style="position:relative;font-size:52px;font-weight:700;color:#9fc0ff;margin-top:12px">เพราะเรื่องรถ เราต้องไว</div>
+  <div style="margin-top:40px;display:grid;gap:18px;flex:1;align-content:start">
+  ${WAI.map((w,i)=>`<div style="display:flex;align-items:center;gap:28px"><div style="width:76px;height:76px;flex:none;border-radius:50%;background:${ORANGE};font-size:42px;font-weight:700;display:grid;place-items:center">${i+1}</div><div><div style="font-size:50px;font-weight:700">${w[0]}</div><div style="font-size:30px;color:#c9d1de">${w[1].replace('\n',' ')}</div></div></div>`).join('')}
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:center">${lineBtn(40)}<span style="font-size:34px;font-weight:700;color:#ffb03a">rodwai.com</span></div></div>`],
+
 'profile-640': [640, 640, `<div class="f" style="width:640px;height:640px;background:${SOFT};align-items:center;justify-content:center">${HEAD.replace('class="head"','class="head" width="560" height="560"')}</div>`],
 };
 
@@ -94,10 +142,5 @@ const T = {
     await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(400);
     await p.screenshot({ path: OUT + name + '.png' }); await p.close();
   }
-  // contact sheet
-  const p = await b.newPage({ viewport: { width: 1400, height: 1000 } });
-  const imgs = Object.keys(T).map(n => `<figure style="margin:0"><img src="file://${OUT}${n}.png" style="max-width:100%;max-height:300px;display:block;border:1px solid #ddd"><figcaption style="font:14px sans-serif">${n}</figcaption></figure>`).join('');
-  await p.setContent(`<body style="margin:16px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;background:#f3f6fb">${imgs}</body>`);
-  await p.waitForTimeout(800); await p.screenshot({ path: D + '/social-sheet.png', fullPage: true });
   await b.close();
 })();

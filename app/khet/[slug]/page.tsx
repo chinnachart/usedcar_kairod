@@ -48,7 +48,7 @@ export default async function DistrictPage({ params }: { params: Promise<{ slug:
       </section>
 
       <section className="section">
-        <h2>บริการรับซื้อรถในเขต{d.th}</h2>
+        <h2>ทำไมคนเขต{d.th}เลือกรถไว? ไว 5 ข้อ</h2>
         <Usps />
       </section>
 

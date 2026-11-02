@@ -128,3 +128,19 @@ h3 { font-size: 1.15rem; }
 .hero-mascot { display: block; width: 130px; height: auto; margin: 8px auto 0; }
 @media (min-width: 900px) { .hero-mascot { width: 180px; margin: 12px 0 0 0; } }
 .cta-mascot { display: block; margin: -8px auto 8px; background: #fff; border-radius: 50%; padding: 8px; width: 110px; height: 110px; object-fit: contain; }
+
+/* branding */
+.logo-words { display: flex; flex-direction: column; line-height: 1.15; }
+.logo-slogan { font-size: .72rem; font-weight: 600; color: var(--muted); letter-spacing: .01em; }
+.logo-dark .logo-slogan { color: #9aa6ba; }
+@media (max-width: 380px) { .logo-slogan { display: none; } }
+.accent { color: var(--accent); }
+.wai-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.wai-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; position: relative; overflow: hidden; }
+.wai-card h3 { font-size: 1.35rem; color: var(--brand); margin: 6px 0 4px; }
+.wai-card p { margin: 0; }
+.wai-num { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; }
+.story { font-size: 1.15rem; line-height: 1.9; }
+.story strong { color: var(--brand); }
+.slogan-big { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: var(--brand); margin: 0; }
+.slogan-big span { color: var(--accent); }

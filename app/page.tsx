@@ -27,7 +27,8 @@ export default function Home() {
       </section>
 
       <section className="section"><div className="container">
-        <h2>ทำไมต้องขายรถกับ RodWai</h2>
+        <h2>ทำไมต้องรถไว? <span className="accent">เพราะเรื่องรถ เราต้องไว</span></h2>
+        <p className="muted">คนที่อยากขายรถไม่มีใครอยากรอ รถไวเลยทำให้ทุกขั้นตอนไว ตั้งแต่ทักไลน์จนได้เงิน <a href="/about">รู้จักรถไว →</a></p>
         <Usps />
       </div></section>
 

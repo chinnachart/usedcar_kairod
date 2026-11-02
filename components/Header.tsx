@@ -12,6 +12,7 @@ export default function Header() {
           <Link href="/khai-rod-tid-finance">รถติดไฟแนนซ์</Link>
           <Link href="/khet">พื้นที่บริการ</Link>
           <Link href="/blog">บทความ</Link>
+          <Link href="/about">ทำไมต้องรถไว</Link>
           <Link href="/dealer" className="nav-dealer">สำหรับเต็นท์รถ</Link>
         </nav>
         <Link href="/dealer" className="mobile-dealer">เต็นท์รถ</Link>

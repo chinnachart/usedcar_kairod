@@ -12,7 +12,7 @@ const font = Noto_Sans_Thai({ subsets: ["thai", "latin"], weight: ["400", "600",
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: "ขายรถมือสอง กรุงเทพฯ ให้เต็นท์แข่งกันเสนอราคา รับซื้อรถทุกยี่ห้อ | RodWai รถไว", template: "%s | RodWai รถไว" },
+  title: { default: "รถไว RodWai | ขายรถมือสอง กรุงเทพฯ ให้เต็นท์แข่งกันเสนอราคา – เรื่องรถ ต้องรถไว", template: "%s | RodWai รถไว" },
   description: "ขายรถมือสองในกรุงเทพฯ กับ RodWai ส่งข้อมูลรถครั้งเดียว เต็นท์พาร์ทเนอร์แข่งกันเสนอราคา ฟรีสำหรับผู้ขาย ตรวจสภาพถึงที่ รถติดไฟแนนซ์ก็ขายได้",
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "th_TH", siteName: SITE.fullName },
@@ -39,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           description: "แพลตฟอร์มขายรถมือสองในกรุงเทพมหานคร ให้เต็นท์พาร์ทเนอร์แข่งกันเสนอราคารับซื้อ",
           logo: abs("/logo.svg"),
           alternateName: ["รถไว", "RodWai"],
+          slogan: SITE.slogan,
           areaServed: { "@type": "City", name: "กรุงเทพมหานคร" },
           ...(SITE.phone ? { telephone: SITE.phone } : {}),
           sameAs: [lineAddFriendUrl()],

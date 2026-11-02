@@ -6,9 +6,13 @@ import LineLink from "./LineLink";
 
 export function Usps() {
   return (
-    <div className="grid">
-      {USPS.map((u) => (
-        <div className="card" key={u.title}><h3>{u.title}</h3><p className="muted">{u.body}</p></div>
+    <div className="wai-grid">
+      {USPS.map((u, i) => (
+        <div className="wai-card" key={u.title}>
+          <span className="wai-num">{i + 1}</span>
+          <h3>{u.title}</h3>
+          <p className="muted">{u.body}</p>
+        </div>
       ))}
     </div>
   );
