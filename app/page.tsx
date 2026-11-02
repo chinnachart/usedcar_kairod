@@ -20,7 +20,7 @@ export default function Home() {
               <li>รถติดไฟแนนซ์ก็ขายได้</li>
               <li>เอกสารโอนถูกต้องตามกรมการขนส่งทางบก</li>
             </ul>
-            <img src="/mascot.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={220} height={262} />
+            <img src="/logo.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={180} height={180} />
           </div>
           <ValuationForm source="home-hero" />
         </div>
@@ -31,7 +31,7 @@ export default function Home() {
         <Usps />
       </div></section>
 
-      <section className="section soft"><div className="container">
+      <section className="section soft" id="steps"><div className="container">
         <h2>ขายรถง่ายๆ 4 ขั้นตอน</h2>
         <Steps />
       </div></section>

@@ -32,7 +32,7 @@ export default function DealerPage() {
                 <li>เลือกเสนอราคาเฉพาะคันที่ตรงกับเต็นท์ของคุณ</li>
                 <li>คุยกันผ่าน LINE สะดวก รวดเร็ว</li>
               </ul>
-              <img src="/mascot.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={220} height={262} />
+              <img src="/logo.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={180} height={180} />
             </div>
             <DealerForm />
           </div>

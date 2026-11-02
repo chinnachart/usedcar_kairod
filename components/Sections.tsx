@@ -28,7 +28,7 @@ export function Steps() {
 export function CtaBox({ title = "อยากรู้ว่ารถของคุณขายได้เท่าไร?", text = "ส่งรายละเอียดรถทาง LINE รับราคาประเมินฟรี ไม่มีข้อผูกมัด" }: { title?: string; text?: string }) {
   return (
     <div className="cta-box">
-      <img src="/mascot.svg" alt="" width={110} height={131} className="cta-mascot" />
+      <img src="/logo.svg" alt="" width={110} height={110} className="cta-mascot" />
       <h2>{title}</h2>
       <p>{text}</p>
       <LineLink source="cta-box">แอด LINE ขอราคาเลย</LineLink>
