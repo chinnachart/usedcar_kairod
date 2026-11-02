@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ValuationForm from "@/components/ValuationForm";
+import HeroOffers from "@/components/HeroOffers";
 import Faq from "@/components/Faq";
 import { Usps, Steps, CtaBox, BrandChips, RelatedPosts, DealerBand } from "@/components/Sections";
 import { ZONES, DISTRICTS } from "@/lib/districts";
@@ -20,7 +21,7 @@ export default function Home() {
               <li>รถติดไฟแนนซ์ก็ขายได้</li>
               <li>เอกสารโอนถูกต้องตามกรมการขนส่งทางบก</li>
             </ul>
-            <img src="/logo.svg" alt="เสือไว มาสคอตของ RodWai" className="hero-mascot" width={180} height={180} />
+            <HeroOffers />
           </div>
           <ValuationForm source="home-hero" />
         </div>

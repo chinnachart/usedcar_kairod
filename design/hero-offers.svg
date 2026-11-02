@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -8 560 408" font-family="'Noto Sans Thai','Sukhumvit Set',sans-serif">
+  <!-- ภาพประกอบ: รถคันเดียว เต็นท์หลายเจ้าเสนอราคา -->
+  <circle cx="280" cy="210" r="180" fill="#e8f0ff"/>
+  <!-- speed lines -->
+  <g stroke="#ff7a00" stroke-width="9" stroke-linecap="round"><path d="M40 262h46M28 290h46M48 318h34"/></g>
+  <!-- car -->
+  <g transform="translate(96 196)">
+    <path d="M0 110V82c0-12 6-19 16-22l28-46C50 4 58 0 70 0h82c12 0 20 4 26 14l24 44c16 3 28 12 28 28v24c0 9-7 16-16 16H16C7 126 0 119 0 110z" fill="#0b5cff"/>
+    <path d="M56 16c3-6 8-9 15-9h78c7 0 12 3 15 9l19 40H38z" fill="#cfe0ff"/>
+    <path d="M110 7v49" stroke="#0b5cff" stroke-width="6"/>
+    <rect x="208" y="72" width="14" height="10" rx="4" fill="#ffd34d"/>
+    <rect x="2" y="74" width="12" height="10" rx="4" fill="#ff5a5a"/>
+    <circle cx="52" cy="128" r="26" fill="#14171f"/><circle cx="52" cy="128" r="12" fill="#c9d1de"/>
+    <circle cx="182" cy="128" r="26" fill="#14171f"/><circle cx="182" cy="128" r="12" fill="#c9d1de"/>
+  </g>
+  <!-- offer cards -->
+  <g font-weight="700">
+    <g transform="translate(330 40)">
+      <rect width="210" height="64" rx="16" fill="#fff" stroke="#e2e7ef" stroke-width="2"/>
+      <circle cx="34" cy="32" r="18" fill="#e8f0ff"/><text x="34" y="39" font-size="18" text-anchor="middle" fill="#0b5cff">A</text>
+      <text x="62" y="27" font-size="14" fill="#5b6474" font-weight="400">เต็นท์ A เสนอ</text>
+      <text x="62" y="50" font-size="20" fill="#14171f">฿412,000</text>
+    </g>
+    <g transform="translate(310 118)">
+      <rect width="230" height="76" rx="18" fill="#ff7a00"/>
+      <circle cx="38" cy="38" r="20" fill="#fff"/><text x="38" y="46" font-size="20" text-anchor="middle" fill="#ff7a00">B</text>
+      <text x="70" y="30" font-size="15" fill="#fff" font-weight="400">เต็นท์ B เสนอ · ดีที่สุด</text>
+      <text x="70" y="58" font-size="24" fill="#fff">฿435,000</text>
+      <circle cx="226" cy="-2" r="16" fill="#06c755" stroke="#fff" stroke-width="3"/><path d="M218 -2l6 6 10-11" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(330 208)">
+      <rect width="210" height="64" rx="16" fill="#fff" stroke="#e2e7ef" stroke-width="2"/>
+      <circle cx="34" cy="32" r="18" fill="#e8f0ff"/><text x="34" y="39" font-size="18" text-anchor="middle" fill="#0b5cff">C</text>
+      <text x="62" y="27" font-size="14" fill="#5b6474" font-weight="400">เต็นท์ C เสนอ</text>
+      <text x="62" y="50" font-size="20" fill="#14171f">฿420,000</text>
+    </g>
+  </g>
+  <!-- dashed lines from car to offers -->
+  <g stroke="#9fc0ff" stroke-width="3" stroke-dasharray="6 8" fill="none"><path d="M270 200C300 120 300 80 328 72"/><path d="M300 210C305 180 305 160 308 156"/><path d="M300 236C310 240 318 240 328 240"/></g>
+  <text x="280" y="392" font-size="14" text-anchor="middle" fill="#5b6474">* ภาพประกอบ ตัวเลขเป็นตัวอย่าง</text>
+</svg>
