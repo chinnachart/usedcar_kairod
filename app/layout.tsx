@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
 import Analytics from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 
 const font = Noto_Sans_Thai({ subsets: ["thai", "latin"], weight: ["400", "600", "700"], display: "swap" });
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <FloatingCta />
         <Analytics />
+        <VercelAnalytics />
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "AutomotiveBusiness",

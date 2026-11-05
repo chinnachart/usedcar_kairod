@@ -1,7 +1,11 @@
-// ส่ง event ไป GA4 (ถ้าตั้ง NEXT_PUBLIC_GA_ID ไว้) — ใช้ตั้งเป็น Key event ใน GA4 เพื่อนับลีด
+// ส่ง event ไป Vercel Web Analytics และ GA4 (ถ้าตั้ง NEXT_PUBLIC_GA_ID ไว้) — "generate_lead" = ลีด
+import { track as vercelTrack } from "@vercel/analytics";
+
 declare global {
   interface Window { gtag?: (...args: unknown[]) => void }
 }
-export function track(event: string, params: Record<string, unknown> = {}) {
-  if (typeof window !== "undefined" && window.gtag) window.gtag("event", event, params);
+export function track(event: string, params: Record<string, string | number | boolean> = {}) {
+  if (typeof window === "undefined") return;
+  try { vercelTrack(event, params); } catch {}
+  if (window.gtag) window.gtag("event", event, params);
 }
