@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CareLogin() {
   const [username, setUsername] = useState("");
@@ -8,6 +8,11 @@ export default function CareLogin() {
   const [show, setShow] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [setupOpen, setSetupOpen] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/care/setup", { cache: "no-store" }).then((r) => r.json()).then((j) => setSetupOpen(!!j.open)).catch(() => {});
+  }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -49,7 +54,11 @@ export default function CareLogin() {
           {error && <p className="care-error" role="alert">{error}</p>}
           <button className="care-primary" type="submit" disabled={busy}>{busy ? "กำลังเข้าสู่ระบบ…" : "เข้าสู่ระบบ"}</button>
         </form>
-        <p className="care-note">ลืมรหัสผ่านหรือยังไม่มีบัญชี ติดต่อผู้ดูแลระบบในครอบครัว</p>
+        {setupOpen ? (
+          <p className="care-note">ยังไม่มีบัญชีในระบบ <a href="/care/setup">ตั้งค่าครั้งแรก (สร้างผู้ดูแลระบบ)</a></p>
+        ) : (
+          <p className="care-note">ลืมรหัสผ่านหรือยังไม่มีบัญชี ติดต่อผู้ดูแลระบบในครอบครัว</p>
+        )}
       </div>
     </div>
   );

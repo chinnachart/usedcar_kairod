@@ -103,7 +103,7 @@ body:has(.care-app) .floating-cta { display: none !important; }
 .care-plot { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
 .care-plot path { fill: none; stroke: var(--c-fg); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; opacity: .35; }
 .care-row { height: var(--c-row); }
-.care-row + .care-row { border-top: 1px dashed var(--c-line); }
+.care-hour + .care-hour { border-top: 1px dashed var(--c-line); }
 .care-hr { font-weight: 700; font-size: 1.05rem; font-variant-numeric: tabular-nums; line-height: 1.1; }
 .care-row.now .care-hr { color: var(--c-now); }
 .care-row.now .care-hr::after { content: "ตอนนี้"; display: block; font-size: .7rem; font-weight: 600; }
@@ -135,3 +135,47 @@ body:has(.care-app) .floating-cta { display: none !important; }
 .care-status { font-size: .85rem; color: var(--c-muted); text-align: center; min-height: 1.2em; margin: 0; }
 .care-report { display: flex; flex-direction: column; gap: 8px; }
 .care-report pre { margin: 0; white-space: pre-wrap; font: inherit; font-size: .95rem; background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--c-r); padding: 12px 14px; overflow-wrap: anywhere; }
+
+/* notes per hour */
+.care-notetext { margin: -4px 0 8px 62px; font-size: .9rem; color: var(--c-fg); background: var(--c-med-bg); border-radius: 8px; padding: 4px 10px; overflow-wrap: anywhere; }
+.care-noteedit { margin: 0 0 10px 62px; display: flex; flex-direction: column; gap: 6px; }
+.care-noteedit textarea { font: inherit; font-size: .95rem; width: 100%; padding: 8px 10px; border: 1.5px solid var(--c-med); border-radius: 10px; background: var(--care-bg); color: var(--c-fg); resize: vertical; }
+.care-quick { display: flex; flex-wrap: wrap; gap: 6px; }
+.care-quick button { border: 1px dashed var(--c-line); background: transparent; border-radius: 8px; padding: 2px 10px; font-size: .82rem !important; color: var(--c-muted) !important; }
+@media (max-width: 420px) { .care-notetext, .care-noteedit { margin-left: 0; } }
+
+/* header buttons */
+.care-topbtns { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.care-app a.care-ghost { color: var(--c-fg); text-decoration: none; display: inline-block; }
+
+/* admin */
+.care-app h2 { font-size: 1.1rem; margin: 0; color: var(--c-fg); }
+.care-card { background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--c-r); padding: 16px; }
+.care-card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+.care-users { list-style: none; margin: 0; padding: 0; }
+.care-users li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; padding: 12px 0; border-top: 1px solid var(--c-line); align-items: center; }
+.care-users li:first-child { border-top: none; }
+.care-u-main { min-width: 0; display: flex; flex-wrap: wrap; gap: 0 8px; align-items: baseline; }
+.care-u-main .care-sub { margin: 0; font-size: .85rem; }
+.care-u-act { grid-column: 1 / -1; display: flex; gap: 14px; }
+.care-me { font-size: .72rem; background: var(--c-accent); color: var(--c-accent-ink); border-radius: 999px; padding: 0 8px; }
+.care-role { font-size: .8rem; font-weight: 700; border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+.care-role.r-admin { background: var(--c-dys-bg); color: var(--c-dys); }
+.care-role.r-caregiver { background: var(--c-ok-bg); color: var(--c-ok); }
+.care-role.r-family { background: var(--care-bg); color: var(--c-muted); }
+.care-danger { color: var(--c-stiff) !important; font-weight: 700; }
+.care-roles { display: flex; flex-direction: column; gap: 6px; }
+.care-radio { display: flex; gap: 10px; align-items: center; font-weight: 400 !important; margin: 0 !important; padding: 8px 10px; border: 1px solid var(--c-line); border-radius: 10px; }
+.care-radio input { width: 20px !important; height: 20px; accent-color: var(--c-accent); }
+.care-row-btns { display: flex; gap: 8px; align-items: stretch; }
+.care-row-btns .care-primary { flex: 1; }
+.care-row-btns .care-ghost { margin-top: 14px; }
+.care-okmsg { color: var(--c-ok); margin: 0; font-weight: 600; }
+.care-share { background: var(--c-ok-bg); border: 1px solid var(--c-ok); border-radius: var(--c-r); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.care-share p { margin: 0; }
+.care-share pre { margin: 0; white-space: pre-wrap; font: inherit; background: var(--c-card); border-radius: 10px; padding: 10px 12px; overflow-wrap: anywhere; }
+.care-btnlink { display: block; text-align: center; text-decoration: none; }
+.care-note a { color: var(--c-accent); font-weight: 600; }
+.care-notetext, .care-noteedit { position: relative; z-index: 2; }
+.care-top { flex-wrap: wrap; }
+.care-top h1 { white-space: nowrap; }

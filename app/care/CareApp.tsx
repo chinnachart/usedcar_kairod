@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
-type Day = { hours: Record<string, number>; meds: Record<string, boolean>; updatedAt?: string; updatedBy?: string };
+type Day = { hours: Record<string, number>; notes: Record<string, string>; updatedAt?: string; updatedBy?: string };
 
 const TH_MONTHS = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
 const TH_DAYS = ["อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์"];
@@ -24,18 +24,18 @@ const shiftDay = (k: string, n: number) => { const d = fromKey(k); d.setDate(d.g
 function buildReport(day: string, data: Day) {
   const lines = [`อาการคุณพ่อ วันที่ ${thaiDate(day)}`, "(เกร็ง −100 · ปกติ 0 · ยุกยิก +100)"];
   for (let h = 0; h <= 23; h++) {
-    const k = pad(h), v = data.hours[k], m = data.meds[k];
-    if (typeof v !== "number" && !m) continue;
-    lines.push(`${k}.00 ${typeof v === "number" ? `${words(v)} (${signed(v)})` : "–"}${m ? " · กินยา" : ""}`);
+    const k = pad(h), v = data.hours[k], n = data.notes[k];
+    if (typeof v !== "number" && !n) continue;
+    lines.push(`${k}.00 ${typeof v === "number" ? `${words(v)} (${signed(v)})` : "–"}${n ? ` · ${n}` : ""}`);
   }
   if (lines.length === 2) lines.push("ยังไม่มีการบันทึก");
   return lines.join("\n");
 }
 
-export default function CareApp({ name, canWrite }: { name: string; canWrite: boolean }) {
+export default function CareApp({ name, canWrite, isAdmin }: { name: string; canWrite: boolean; isAdmin: boolean }) {
   const [today, setToday] = useState(() => keyOf(new Date()));
   const [day, setDay] = useState(today);
-  const [data, setData] = useState<Day>({ hours: {}, meds: {} });
+  const [data, setData] = useState<Day>({ hours: {}, notes: {} });
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState("");
   const [showNight, setShowNight] = useState(false);
@@ -43,6 +43,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
   const [copied, setCopied] = useState("");
   const [nowH, setNowH] = useState(() => new Date().getHours());
   const [path, setPath] = useState("");
+  const [openNote, setOpenNote] = useState<string | null>(null);
 
   const dataRef = useRef(data); dataRef.current = data;
   const dayRef = useRef(day); dayRef.current = day;
@@ -69,7 +70,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
       const j = (await res.json()) as Day;
       // ignore if the day changed or the caregiver edited while this was in flight
       if (d !== dayRef.current || timers.current.size || inflight.current || Date.now() - lastEdit.current < 3000) return;
-      setData({ hours: j.hours || {}, meds: j.meds || {}, updatedAt: j.updatedAt, updatedBy: j.updatedBy });
+      setData({ hours: j.hours || {}, notes: j.notes || {}, updatedAt: j.updatedAt, updatedBy: j.updatedBy });
       setLoaded(true);
       if (!quiet) setStatus("");
     } catch {
@@ -79,7 +80,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
 
   useEffect(() => {
     setLoaded(false);
-    setData({ hours: {}, meds: {} });
+    setData({ hours: {}, notes: {} });
     load(day);
     const t = setInterval(() => {
       if (document.hidden) return;
@@ -102,7 +103,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
       const res = await fetch("/api/care/entry", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ date: d, hour, value: typeof v === "number" ? v : null, med: !!cur.meds[hour] }),
+        body: JSON.stringify({ date: d, hour, value: typeof v === "number" ? v : null, note: cur.notes[hour] || "" }),
       });
       if (res.status === 401) { window.location.href = "/care/login"; return; }
       if (!res.ok) throw new Error();
@@ -114,11 +115,11 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
     }
   }, []);
 
-  const schedule = useCallback((hour: string) => {
+  const schedule = useCallback((hour: string, delay = 700) => {
     const d = dayRef.current, key = `${d}|${hour}`;
     lastEdit.current = Date.now();
     clearTimeout(timers.current.get(key));
-    timers.current.set(key, setTimeout(() => save(d, hour), 700));
+    timers.current.set(key, setTimeout(() => save(d, hour), delay));
     setStatus("กำลังบันทึก…");
   }, [save]);
 
@@ -140,13 +141,13 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
     });
     schedule(hour);
   }
-  function toggleMed(hour: string) {
+  function setNote(hour: string, text: string) {
     setData((p) => {
-      const meds = { ...p.meds };
-      if (meds[hour]) delete meds[hour]; else meds[hour] = true;
-      return { ...p, meds };
+      const notes = { ...p.notes };
+      if (text.trim()) notes[hour] = text.slice(0, 300); else delete notes[hour];
+      return { ...p, notes };
     });
-    schedule(hour);
+    schedule(hour, 1200);
   }
   function goDay(k: string) { flushAll(); scrolled.current = k !== today; setDay(k); }
 
@@ -170,7 +171,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showNight]);
 
-  useLayoutEffect(() => { drawLine(); }, [data, drawLine]);
+  useLayoutEffect(() => { drawLine(); }, [data, openNote, drawLine]);
   useEffect(() => {
     window.addEventListener("resize", drawLine);
     document.fonts?.ready.then(drawLine);
@@ -187,7 +188,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
   // ---------- summary ----------
   const vals = Object.values(data.hours);
   const nStiff = vals.filter((v) => v < 0).length, nOk = vals.filter((v) => v === 0).length, nDys = vals.filter((v) => v > 0).length;
-  const nMed = Object.values(data.meds).filter(Boolean).length;
+  const nNote = Object.keys(data.notes).length;
   const avg = vals.length ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : 0;
   const isToday = day === today;
   const report = buildReport(day, data);
@@ -210,7 +211,10 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
           <h1>บันทึกดูแลคุณพ่อ</h1>
           <p className="care-sub">สวัสดี {name}{canWrite ? "" : " · ดูได้อย่างเดียว"}</p>
         </div>
-        <button className="care-ghost care-sm" type="button" onClick={logout}>ออกจากระบบ</button>
+        <div className="care-topbtns">
+          {isAdmin && <a className="care-ghost care-sm" href="/care/admin">จัดการผู้ใช้</a>}
+          <button className="care-ghost care-sm" type="button" onClick={logout}>ออกจากระบบ</button>
+        </div>
       </header>
 
       <div className="care-daybar">
@@ -230,7 +234,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
           <div className="c-stiff"><b>{nStiff}</b><span>ชม. เกร็ง</span></div>
           <div className="c-ok"><b>{nOk}</b><span>ชม. ปกติ</span></div>
           <div className="c-dys"><b>{nDys}</b><span>ชม. ยุกยิก</span></div>
-          <div className="c-med"><b>{nMed}</b><span>ครั้งกินยา</span></div>
+          <div className="c-med"><b>{nNote}</b><span>หมายเหตุ</span></div>
         </div>
         <div className="care-bar" aria-hidden="true">
           {vals.length > 0 && ([["stiff", nStiff], ["ok", nOk], ["dys", nDys]] as const).map(([z, n]) =>
@@ -251,7 +255,7 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
         <div className="care-chead">
           <span className="care-th">เวลา</span>
           <div className="care-scale"><span>เกร็ง<small>−100</small></span><span>ปกติ<small>0</small></span><span>ยุกยิก<small>+100</small></span></div>
-          <span className="care-medh">ยา</span>
+          <span className="care-medh">หมายเหตุ</span>
         </div>
         <button className="care-night" type="button" onClick={() => {
           const v = !showNight; setShowNight(v);
@@ -265,7 +269,8 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
             const set = typeof v === "number";
             const z = set ? zone(v) : "";
             return (
-              <div key={k} id={`care-h-${k}`} className={`care-row${set ? "" : " unset"}${isToday && h === nowH ? " now" : ""}`} data-zone={z}>
+              <div key={k} id={`care-h-${k}`} className="care-hour">
+              <div className={`care-row${set ? "" : " unset"}${isToday && h === nowH ? " now" : ""}`} data-zone={z}>
                 <div className="care-hr">{k}.00</div>
                 <div className="care-slot">
                   <div className="care-val">
@@ -291,9 +296,29 @@ export default function CareApp({ name, canWrite }: { name: string; canWrite: bo
                     onChange={(e) => setHour(k, Number(e.target.value))}
                   />
                 </div>
-                <button type="button" className="care-med" aria-pressed={!!data.meds[k]} aria-label={`${k}.00 น. กินยา`} disabled={!canWrite} onClick={() => toggleMed(k)}>
-                  {data.meds[k] ? "กินแล้ว" : "ยา"}
+                <button type="button" className="care-med" aria-pressed={!!data.notes[k]} aria-expanded={openNote === k}
+                  aria-label={`หมายเหตุเวลา ${k}.00 น.`} disabled={!canWrite && !data.notes[k]}
+                  onClick={() => setOpenNote(openNote === k ? null : k)}>
+                  {openNote === k ? "ปิด" : data.notes[k] ? "มีโน้ต" : "+ โน้ต"}
                 </button>
+              </div>
+              {openNote === k && canWrite ? (
+                <div className="care-noteedit">
+                  <textarea id={`care-note-${k}`} autoFocus rows={2} maxLength={300} value={data.notes[k] || ""}
+                    placeholder="เช่น กินยา Madopar ครึ่งเม็ด, ทานข้าวได้น้อย, นอนพัก"
+                    onChange={(e) => setNote(k, e.target.value)} />
+                  <div className="care-quick">
+                    {["กินยา", "Madopar ครึ่งเม็ด", "ทานอาหาร", "อาบน้ำ", "นอนพัก", "เดินออกกำลัง"].map((q) => (
+                      <button key={q} type="button" onClick={() => {
+                        const cur = (data.notes[k] || "").trim();
+                        setNote(k, cur ? `${cur} ${q}` : q);
+                      }}>+ {q}</button>
+                    ))}
+                  </div>
+                </div>
+              ) : data.notes[k] ? (
+                <p className="care-notetext">{data.notes[k]}</p>
+              ) : null}
               </div>
             );
           })}

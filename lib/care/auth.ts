@@ -1,4 +1,4 @@
-import { createHmac, scrypt as scryptCb, timingSafeEqual } from "node:crypto";
+import { createHmac, randomBytes, scrypt as scryptCb, timingSafeEqual } from "node:crypto";
 import { promisify } from "node:util";
 import { cookies } from "next/headers";
 
@@ -13,6 +13,12 @@ function secret() {
   const s = process.env.CARE_SESSION_SECRET || "";
   if (s.length < 32) throw new Error("CARE_SESSION_SECRET must be at least 32 characters");
   return s;
+}
+
+export async function hashPassword(password: string): Promise<string> {
+  const salt = randomBytes(16);
+  const hash = await scrypt(password, salt, 32);
+  return `scrypt$${salt.toString("base64")}$${hash.toString("base64")}`;
 }
 
 // password hash format: scrypt$<salt base64>$<hash base64>  (make one with: npm run care:hash)
@@ -60,3 +66,6 @@ export async function currentSession(): Promise<Session | null> {
 }
 
 export const canWrite = (s: Session) => s.r === "admin" || s.r === "caregiver";
+
+export const USERNAME_RE = /^[a-z0-9._-]{3,32}$/;
+export const MIN_PASSWORD = 6;

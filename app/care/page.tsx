@@ -7,5 +7,5 @@ export const dynamic = "force-dynamic";
 export default async function CarePage() {
   const s = await currentSession();
   if (!s) redirect("/care/login");
-  return <CareApp name={s.n} canWrite={canWrite(s)} />;
+  return <CareApp name={s.n} canWrite={canWrite(s)} isAdmin={s.r === "admin"} />;
 }
