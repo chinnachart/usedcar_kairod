@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "care:hash": "node scripts/care-hash-password.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
